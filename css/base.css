@@ -30,20 +30,16 @@ ul, ol {
 
 a {
     text-decoration: none;
-    -webkit-tap-highlight-color:rgba(0,0,0,0);
-    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
     -webkit-user-select: none;
     -moz-user-focus: none;
     -moz-user-select: none;
-    -webkit-tap-highlight-color: transparent;
 }
 
 a:hover {
     text-decoration: none;
     -webkit-tap-highlight-color:rgba(0,0,0,0);
-    -webkit-tap-highlight-color: transparent;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
     outline:none;
-    background: none;
     text-decoration: none;
 }
 
