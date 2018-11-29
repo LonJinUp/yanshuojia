@@ -176,6 +176,7 @@
 <!--video jt-->
 <div class="arrow"></div>
 <a  class="participate" onclick="openApp()"></a>
+<a  class="participate ccc"></a>
 
 
 
@@ -184,7 +185,9 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
 
-
+    $(".ccc").click(function () {
+        window.location.href = 'app://text';
+    });
 
     // function openApp(){
     //     var ua = window.navigator.userAgent.toLowerCase();
@@ -263,13 +266,13 @@
 
 
     function openApp(){
-        var schemeUrl ='app://text';
+        var schemeUrl = 'app://text';
         if (navigator.userAgent.match(/(iPhone|iPod|iPad)/i)) {
             var loadDateTime = new Date();
             window.setTimeout(function() {
                 var timeOutDateTime = new Date();
                 if (timeOutDateTime - loadDateTime < 5000) {
-                    window.location.href = 'perfect.html';
+                    window.location.href = '没安装APP时要跳转的链接';
                 } else {
                     alert('无法打开');
                 }
@@ -284,7 +287,7 @@
                 alert('无法打开');
                 window.close();
             } else {
-                window.location.href = 'Sign_up.html';
+                window.location.href = '没安装APP时要跳转的链接';
             }
         }
     }
