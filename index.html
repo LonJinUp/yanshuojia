@@ -182,15 +182,9 @@
 <script src="js/rem.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
-   function weixinShareTimeline(title,desc,link,imgUrl){
-	WeixinJSBridge.invoke('shareTimeline',{
-		"img_url":'image/banner.png',
-		//"img_width":"640",
-		//"img_height":"640",
-		"link":link,
-		"desc": desc,
-		"title":title
-	});	
+   function gotoActivity (activity) {
+
+	nativeMethod.toActivity(activity); //H5端调用的方法
 }
 </script>
 </html>
