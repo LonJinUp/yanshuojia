@@ -142,6 +142,29 @@
 <script src="js/rem.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
-    console.log($)
+    console.log($);
+    //设置cooke
+    function setCookie(name,value,day){
+        var date = new Date();
+        date.setDate(date.getDate() + day);
+        document.cookie = name + '=' + value + ';expires='+ date;
+    };
+    //获取cookie
+    function getCookie(name){
+        var reg = RegExp(name+'=([^;]+)');
+        var arr = document.cookie.match(reg);
+        if(arr){
+            return arr[1];
+        }else{
+            return '';
+        }
+    };
+    //删除cookie
+    function delCookie(name){
+        setCookie(name,null,-1);
+    };
+    if(getCookie("cs")=="111"){
+        alert(getCookie("cs"))
+    }
 </script>
 </html>
