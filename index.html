@@ -118,7 +118,7 @@
         background: url('image/jiantou.png')no-repeat center center /100% 100%;
         margin: 0 auto;
         margin-top: .3rem;
-       /*position:absolute;*/
+        /*position:absolute;*/
         /*left: 0;*/
         /*right: 0;*/
         /*margin-top: .3rem;*/
@@ -153,16 +153,16 @@
 </style>
 <body>
 <!--top_bar-->
-    <div class="top_bar">
-        <div class="logo">
-            <img src="image/logo+.png" alt="">
-        </div>
-        <p class="top_title">超级演说家</p>
-        <a class="share_it">
-            <img src="image/fenxiang.png" alt="">
-        </a>
+<div class="top_bar">
+    <div class="logo">
+        <img src="image/logo+.png" alt="">
     </div>
-    <div class="top_bar_box"></div>
+    <p class="top_title">超级演说家</p>
+    <a class="share_it">
+        <img src="image/fenxiang.png" alt="">
+    </a>
+</div>
+<div class="top_bar_box"></div>
 <!--banner-->
 <div class="banner"></div>
 <!--title-->
@@ -175,17 +175,37 @@
 <div class="video_title"></div>
 <!--video jt-->
 <div class="arrow"></div>
-<a class="participate"  onclick="gotoActivity('a')">
-<a class="participate"  onclick="gotoActivity(a)">
+<a class="participate" >
 </a>
 
 </body>
 <script src="js/rem.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script>
-   function gotoActivity (activity) {
+    //设置cooke
+    function setCookie(name,value,day){
+        var date = new Date();
+        date.setDate(date.getDate() + day);
+        document.cookie = name + '=' + value + ';expires='+ date;
+    };
+    //获取cookie
+    function getCookie(name){
+        var reg = RegExp(name+'=([^;]+)');
+        var arr = document.cookie.match(reg);
+        if(arr){
+            return arr[1];
+        }else{
+            return '';
+        }
+    };
+    //删除cookie
+    function delCookie(name){
+        setCookie(name,null,-1);
+    };
 
-	nativeMethod.toActivity(activity); //H5端调用的方法
-}
+    $(".participate").click(function () {
+        setCookie("cs","111",30)
+    });
+
 </script>
 </html>
