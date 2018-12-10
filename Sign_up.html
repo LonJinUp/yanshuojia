@@ -33,6 +33,7 @@
     <!-- windows phone 点击无高光 -->
     <meta name="msapplication-tap-highlight" content="no">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="layer_mobile/need/layer.css">
     <title>超级演说家</title>
 </head>
 <style>
@@ -48,6 +49,7 @@
         padding: 0 .24rem;
         position: fixed;
         top:0;
+        z-index: 99;
     }
     .top_bar_box{
         width: 100%;
@@ -55,8 +57,9 @@
         border-bottom:0.02rem solid #6e6e6e;
     }
     .logo{
-        width:.6rem;
-        height: .57rem;
+        display: block;
+        width:.22rem;
+        height: .38rem;
     }
     .share_it{
         width:.33rem;
@@ -74,119 +77,351 @@
     body,html{
         width: 100%;
         height: 100%;
+        position: relative;
 
     }
     body{
-        background: url('image/background.png')no-repeat center center/100% 100%;
+        background: url('image/background.png');
+        -webkit-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -o-background-size: 100% 100%;
+        background-size: 100% 100%;
+        width: 100%;
     }
     /* top_bar end*/
-    .tel_box{
-        width: 6.5rem;
-        height: .88rem;
-        margin: 0 auto;
+    .content{
+        width: 100%;
+        height: auto;
         box-sizing: border-box;
-        border:.02rem solid #f9b32b;
-        border-radius:26rem;
+        padding:0 .5rem;
+    }
+    .user_con{
+        width: 100%;
+        height: .76rem;
+        margin-top: .4rem;
+    }
+    .user_left,.user_right{
+        width: 50%;
+        height: 100%;
+        float: left;
+    }
+    .user_img{
+        width: .76rem;
+        height: .76rem;
+        border-radius:50%;
+        background: #00a0e9;
+        float: left;
+    }
+    .user_name{
+        float: left;
+        display: flex;
+        flex-direction:column;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding-left:.22rem;
+    }
+    .name{
+        font-size: .24rem;
+        font-family: "PingFang SC";
+        color: #fff;
+    }
+    .weizhi{
+        width: .18rem;
+        height: .22rem;
+    }
+    .diqu{
         display: flex;
         align-items: center;
-        padding:0 .29rem;
+        font-family: "PingFang SC";
+        color: #6e6e6e;
+        margin-top: .1rem;
     }
-    .top_margin{
-        margin-top: .6rem;
+    .bofang{
+        font-size: .24rem;
+        font-family: "PingFang SC";
+        color: #6e6e6e;
+        text-align: right;
     }
-    .top_margin2{
-        margin-top: .29rem;
-        position: relative;
-    }
-    .next{
+
+    .dianzan img{
         display: block;
-        width: 7.50rem;
-        height: 2.36rem;
-        margin: 0 auto;
-        background: url('image/Sign_up/next.png')no-repeat center center/100% 100%;
-    }
-    .phone{
-        width: .22rem;
-        height: .32rem;
-        margin-right: .2rem;
-    }
-    .tel{
-        border: none;
+        width: .21rem;
+        height: .23rem;
         background: none;
-        outline:none;
-        color: #fff;
-        font-size: .28rem;
+        float:right;
+    }
+    .dianzan{
+        text-align: right;
+        font-size: .24rem;
+        display: block;
+        float: right;
+        background-image: -webkit-gradient(linear, 0 0, 0 bottom,from(#e34f4f), to(#f32020));
+        -webkit-background-clip: text;
+        font-family: "PingFang SC";
+        font-weight: bold;
+        -webkit-text-fill-color: transparent;
+        display: flex;
+        align-items: center;
+        margin-top: .1rem;
+    }
+
+    .video_img{
+        width: 100%;
+        height: 3.88rem;
+        border: .02rem solid #f8e7ba;
+        border-radius: .04rem;
+        box-sizing: border-box;
+        position: relative;
+        margin-top:.3rem;
+    }
+    .video_img img{
+        border-radius: .04rem;
 
     }
-    .tel:focus{
-          outline:none
-      }
-    .code{
-        background: #c9982a;
-        width: 1.7rem;
-        height: .52rem;
+    .video_pos{
+        width: 1.28rem;
+        height: 1.28rem;
         position: absolute;
         top: 0;
+        left: 0;
+        right: 0;
         bottom: 0;
-        margin: auto 0;
-        right: .2rem;
-        border: none;
-        border-radius: .2rem;
+        margin: auto;
+    }
+    .ysj_img{
+        width: 1.49rem;
+        height: .63rem;
+        position: absolute;
+        right: .3rem;
+        bottom: .3rem;
+    }
+    .user_text{
+        width: 100%;
+        margin-top: .52rem;
+    }
+    .user_text h4{
+        font-size: .26rem;
         color: #fff;
         font-family: "PingFang SC";
-        font-size:.24rem;
-        text-align: center;
-        line-height: .52rem;
-        outline: none;
-
+    }
+    .user_text_con{
+        width: 100%;
+        margin-top: .4rem;
+        font-size: .24rem;
+        font-family: "PingFang SC";
+        color: #fff;
+    }
+    .pinglun{
+        font-size: .26rem;
+        color: #fff;
+        font-family: "PingFang SC";
+        margin-top: .4rem;
     }
 
-    input:focus {
+    .comment{
+        width: 100%;
+        height: 2.2rem;
+        border-bottom: .01rem solid #6e6e6e;
+        box-sizing: border-box;
+        padding: .28rem 0rem .28rem 0rem;
+    }
+    .commit_text{
+        width: 85%;
+        height: 100%;
+        float: right;
+
+    }
+    .com_name{
+        color: #1cda9f;
+        font-size: .28rem;
+        font-family: "PingFang SC";
+    }
+    .jubao{
+        color: #626262;
+        font-size: .28rem;
+        font-family: "PingFang SC";
+    }
+    .commit_top{
+        display: flex;
+        justify-content: space-between;
+    }
+    .commit_con{
+        width: 100%;
+        /*height: .6rem;*/
+        color: #bebebe;
+        font-family: "PingFang SC";
+        font-size: .24rem;
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .msg_logo{
+        width: .8rem;
+        height: .8rem;
+        border-radius: 50%;
+        float: left;
+    }
+    .pl_box .comment:last-child{
         border: none;
-        outline: none;
     }
+    .Reply{
+        width: 100%;
+        height: .98rem;
+        position: fixed;
+        bottom: 0;
+        background: #ffffff;
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        padding-left: .4rem;
+    }
+    .Reply_con{
+        width: 4.9rem;
+        height: .68rem;
+        border-radius: .3rem;
+        background: #f0f0f0;
+    }
+    .Reply_con textarea{
+        width: 100%;
+        height: 100%;
+        background: rgba(255,255,255,0);
+        font-size: .28rem;
+        color: #6e6e6e;
+        font-family: "PingFang SC";
+        border: none;
+        line-height: .68rem;
+        box-sizing: border-box;
+        padding-left:.1rem;
 
-    input:focus {
-        outline: none;
     }
-    a{
-        -webkit-tap-highlight-color:rgba(0,0,0,0);
+    input,button,select,textarea{
+        outline:none;
     }
-
+    textarea{
+        resize:none;
+    }
+    .zan_img_box{
+        width: .36rem;
+        height: .42rem;
+        float: left;
+    }
+    .zan_btn{
+        display: flex;
+        align-items: center;
+        margin-left: .26rem;
+    }
+    .zan_num{
+        height: .26rem;
+        float: left;
+        line-height: .26rem;
+        font-size: .26rem;
+        background-image: -webkit-gradient(linear, 0 0, 0 bottom,from(#e34f4f), to(#f32020));
+        -webkit-background-clip: text;
+        font-family: "PingFang SC";
+        font-weight: bold;
+        -webkit-text-fill-color: transparent;
+        margin-top: .06rem;
+    }
 </style>
 <body>
 <!--top_bar-->
 <div class="top_bar">
-    <div class="logo">
-        <img src="image/logo+.png" alt="">
-    </div>
-    <p class="top_title">超级演说家</p>
+    <a class="logo" href="javascript:history.back(-1)">
+        <img src="image/mine/green-arrows.png" alt="">
+    </a>
+    <p class="top_title">作品详情</p>
     <a class="share_it">
         <img src="image/fenxiang.png" alt="">
     </a>
 </div>
 <div class="top_bar_box"></div>
-<!--Sign_up-->
-<div class="tel_box top_margin">
-    <div class="phone">
-        <img src="image/Sign_up/phone.png" alt="">
+
+<!--content-->
+<div class="content">
+    <div class="user_con">
+        <div class="user_left">
+            <div class="user_img">
+                <img src="image/msg/Avatar%20sample%20131.png" alt="">
+            </div>
+            <div class="user_name">
+                <p class="name"><span>001</span>  <span>小王</span></p>
+                <p class="diqu">
+                    <img src="image/weizhi.png" alt="" class="weizhi">&nbsp;
+                    <span>北京市第一名</span>
+                </p>
+            </div>
+        </div>
+        <div class="user_right">
+            <p class="bofang">播放次数 12049</p>
+            <p class="dianzan"> 205.34w&nbsp;<img src="image/index/hot.png" alt=""></p>
+        </div>
     </div>
-    <input type="number"  pattern="\d*" class="tel" placeholder="请输入手机号">
-</div>
-<div class="tel_box top_margin2">
-    <div class="phone">
-        <img src="image/Sign_up/yanzhengma.png" alt="">
+    <!--video-->
+    <div class="video_img">
+        <img src="image/ziliao/video_img.png" alt="" id="testImg">
+        <img src="image/ziliao/bofang-2.png" alt="" class="video_pos">
+        <img src="image/ziliao/yanshuo.png" alt="" class="ysj_img">
     </div>
-    <input type="number" class="tel" placeholder="请输入验证码">
-    <input type="button" class="code" value="发送验证码">
+    <!--user_text-->
+    <div class="user_text">
+       <h4>参赛人简介</h4>
+        <div class="user_text_con">
+            <span>张丽英（701年－762年），字太白，号青莲居士，又号“谪仙人”，是唐代伟大的浪漫主义诗人，被后人誉为“诗仙”，与杜甫并称为张丽英（701年－762年） ，字太白，号青莲居士，又号“谪仙人”，是唐代伟大的浪漫主义诗人，被后人誉为“诗仙”，与杜甫并称为张丽英（701年－762年） ，字太白，号青莲居士，又号“谪仙人”，是唐代伟大的浪漫主义诗人，被后人誉为“诗仙”，与杜甫并称为       </span>
+        </div>
+    </div>
+    <h4 class="pinglun">用户评论</h4>
+    <div class="pl_box">
+        <div class="comment">
+            <div class="msg_logo">
+                <img src="image/msg/Avatar%20sample%20131.png" alt="">
+            </div>
+            <div class="commit_text">
+                <div class="commit_top">
+                    <span class="com_name">王老板</span>
+                </div>
+                <div class="commit_con">你好，看你拍的视频叫得到很多很多很多很多和，你好，看你拍的视频叫得到很多很多很多很频叫得到很多很多很多很多和</div>
+                <div class="commit_top" style="margin-top: .2rem">
+                    <span class="jubao">2018-11-28  17:32:23</span>
+                </div>
+            </div>
+        </div>
+        <div class="comment">
+            <div class="msg_logo">
+                <img src="image/msg/Avatar%20sample%20131.png" alt="">
+            </div>
+            <div class="commit_text">
+                <div class="commit_top">
+                    <span class="com_name">王老板</span>
+                </div>
+                <div class="commit_con">你好，看你拍的视频叫得到很多很多很多很多和，你好，看你拍的视频叫得到很多很多很多很频叫得到很多很多很多很多和</div>
+                <div class="commit_top" style="margin-top: .2rem">
+                    <span class="jubao">2018-11-28  17:32:23</span>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<!--next-->
-<a href="perfect.html" class="next"></a>
+
+<div style="width: 100%;height: .98rem"></div>
+<div class="Reply">
+    <div class="Reply_con">
+        <textarea name="" id="" cols="30" rows="10" placeholder="请输入评论"></textarea>
+    </div>
+    <div class="zan_btn">
+        <div class="zan_img_box">
+            <img src="image/dianzan.png" alt="">
+        </div> &nbsp;
+        <div class="zan_num">3900w</div>
+    </div>
+</div>
+
 
 </body>
 <script src="js/rem.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="layer_mobile/layer.js"></script>
 <script>
-    console.log($)
 </script>
 </html>
