@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0" />
+    <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1"
+          media="(device-height: 568px)" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="full-screen" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="address=no" />
+
+
+    <style>
+        #float-search{
+            height:40px;
+            background:red;
+            position:fixed;
+            top:0;
+            width:100%;
+
+        }
+        #float-search input{
+            height:36px;
+            border:1px solid #ccc;
+            width:100px
+
+        }
+    </style>
+</head>
+
+<body>
+<div class="warp">
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p><p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+    <p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+    <p>5</p>
+    <p>6</p>
+    <p>7</p>
+    <p>8</p>
+    <p>9</p>
+    <p>10</p>
+
+</div>
+<div >
+    <input type="text"  name="q" x-webkit-speech="" placeholder="搜索商品" autocomplete="off"
+           value="">
+</div>
+<div  style="position: fixed; top: 20%; right:100px;width: 100px; height: 100px;
+        border: 1px solid red;">
+</div>
+</body>
+<script src="http://cdn.bootcss.com/jquery/3.1.0/jquery.js"></script>
+<script>
+
+    function printStyles(elem) {
+        var dtop = $(document).scrollTop();
+        var position = $("#"+elem).css("position");
+        var top = $("#"+elem).css('top');
+        var height = $(window).height();//整个窗口高
+        height = height / 4;
+        var html = 'top:' + dtop + "<br/>"
+            + "bodyTop:" + document.body.scrollTop + "<br/>"
+            + "position:" + position + "<br/>" + "top:" + top + "<br/>"
+            + "height:" + height;
+        return html;
+    }
+
+
+    $().ready(function () {
+        window.onscroll = function() {
+
+            //测试代码
+            $("#debugmsg").html(printStyles('float-search'));
+            //end 测试代码
+
+            $("#float-search input").focus(function() {
+                var top = $(document).scrollTop();
+                var height = $(window).height();//整个窗口高
+                height = height / 4;
+
+                $("#float-search").css("position", "absolute");
+                $("#float-search").css("top",top);
+                setTimeout(function() {
+                    $("html,body").animate({scrollTop:top},5);//1000是ms,也可以用slow代替
+                },5);
+                //测试代码
+                $("#debugmsg").html(printStyles('float-search'));
+                //end 测试代码
+
+            }).blur(function() {
+                $("#float-search").css("position", "fixed");
+                $("#float-search").css("top","0");
+
+
+                //测试代码
+                $("#debugmsg").html(printStyles('float-search'));
+                //end 测试代码
+            });
+
+        }
+    });
+
+
+
+
+
+</script>
+</html>

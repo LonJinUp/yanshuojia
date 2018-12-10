@@ -74,10 +74,16 @@
     body,html{
         width: 100%;
         height: 100%;
+        position: relative;
 
     }
     body{
-        background: url('image/background.png')no-repeat center center/100% 100%;
+        background: url('image/background.png');
+        -webkit-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -o-background-size: 100% 100%;
+        background-size: 100% 100%;
+        width: 100%;
     }
     /* top_bar end*/
     .tel_box{
@@ -104,6 +110,7 @@
         height: 2.36rem;
         margin: 0 auto;
         background: url('image/Sign_up/next.png')no-repeat center center/100% 100%;
+        margin-top: .3rem;
     }
     .phone{
         width: .26rem;
@@ -215,7 +222,6 @@
     <img src="image/perfect/xiangji-2.png" alt="" id="testImg">
     <input id="testFile" type="file" style="display: none;">
     <textarea id="testArea" style="display:none;"></textarea>
-
 </div>
 
 <!--Sign_up-->
@@ -241,7 +247,7 @@
 </div>
 <!--next-->
 <a href="success.html" class="next"></a>
-
+<video src=""  autoplay="autoplay" controls="controls"></video>
 </body>
 <script src="js/rem.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
@@ -256,9 +262,11 @@
             try {
                 /*图片转Base64 核心代码*/
                 var file = input_file.files[0];
+               var daixoa= input_file.files[0].size;
+                fileSize = Math.round(daixoa/1024/1024*100)/100;
                 //这里我们判断下类型如果不是图片就返回 去掉就可以上传任意文件
-                if (!/image\/\w+/.test(file.type)) {
-                    alert("请确保文件为图像类型");
+                if (fileSize>29) {
+                    alert("太大了");
                     return false;
                 }
                 var reader = new FileReader();
@@ -278,28 +286,17 @@
 
     $("#testFile").change(function () {
         run(this, function (data) {
-            $('#testImg').attr('src', data);
-            $('#testArea').val(data);
-            var baseImg=data;
-            var obj = getsign();
-            obj.token=getCookie("token");
-            obj.imgcode=baseImg;
-            $.ajax({
-                url:"/mobile/user/uploadWebImg",
-                async: false,
-                type: "post",
-                dataType: "json",
-                data:obj,
-                success:function(res){
-                    if(res.code="1111"){
-                        alert("修改成功")
-                    }else{
-                        alert(res.message);
-                    }
-                }
-            })
-
+            // $('#testImg').attr('src', data);
+            $("video").attr('src',data)
+            console.log(data)
         });
     });
+
+
+
+
+
+
+
 </script>
 </html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+    <!-- 是否启动webapp功能，会删除默认的苹果工具栏和菜单栏。 -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- 这个主要是根据实际的页面设计的主体色为搭配来进行设置。 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!-- 忽略页面中的数字识别为电话号码,email识别 -->
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="layer_mobile/need/layer.css">
+    <title>超级演说家</title>
+</head>
+<style>
+    /* top_bar*/
+    .top_bar{
+        width: 100%;
+        height: .88rem;
+        background:#141615;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 .24rem;
+        position: fixed;
+        top:0;
+    }
+    .top_bar_box{
+        width: 100%;
+        height:.88rem;
+        border-bottom:0.02rem solid #6e6e6e;
+    }
+    .logo{
+        display: block;
+        width:.22rem;
+        height: .38rem;
+    }
+    .share_it{
+        width:.33rem;
+        height: .36rem;
+    }
+    div img{
+        width: 100%;
+        height: 100%;
+    }
+    .top_title{
+        font-size: .32rem;
+        color:#fff;
+        font-family: "PingFang SC";
+    }
+    body,html{
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+    }
+    body{
+        background: url('image/background.png');
+        -webkit-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -o-background-size: 100% 100%;
+        background-size: 100% 100%;
+        width: 100%;
+    }
+    /* top_bar end*/
+    .choose_box{
+        width: 100%;
+        height: .88rem;
+        border-bottom: .01rem solid #6e6e6e;
+    }
+    .choose_btn{
+        width: 50%;
+        height: 100%;
+        float: left;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        font-size: .28rem;
+        box-sizing: border-box;
+        border-bottom: .02rem solid rgba(255,255,255,0);
+    }
+    .choose_con{
+        width: 100%;
+        height: .48rem;
+        text-align: center;
+        line-height: .48rem;
+        box-sizing: border-box;
+        border-right: .01rem solid #6e6e6e;
+    }
+    .choose_con span{
+        font-family: "PingFang SC";
+    }
+    .con_item{
+        display:none;
+        color: #fff;
+    }
+    .on{
+        display:block;
+    }
+    .choose_btn.cur {
+        color: #1cda9f;
+        border-bottom: .02rem solid #1cda9f;
+    }
+    .msg_item{
+        width: 100%;
+        height: 1.42rem;
+        border-bottom: .01rem solid #6e6e6e;
+        box-sizing: border-box;
+        padding:0 .4rem;
+        display: flex;
+        align-items: center;
+    }
+    .msg_logo{
+        width: .8rem;
+        height: .8rem;
+        border-radius: 50%;
+        float: left;
+    }
+    .msg_title{
+        height: .7rem;
+        margin-left: .2rem;
+    }
+    .msg_title p{
+        font-size: .28rem;
+        font-family: "PingFang SC";
+    }
+    .msg_title span{
+        font-size: .24rem;
+        font-family: "PingFang SC";
+        color:#6e6e6e;
+    }
+    .index_back{
+        display: block;
+        width: 1rem;
+        height: 1rem;
+        position: fixed;
+        right: .3rem;
+        bottom: 1.1rem;
+    }
+    .index_back img{
+        width: 100%;
+        height: 100%;
+    }
+    .comment{
+        width: 100%;
+        height: 2.2rem;
+        border-bottom: .01rem solid #6e6e6e;
+        box-sizing: border-box;
+        padding: .28rem .3rem .28rem .4rem;
+    }
+    .commit_text{
+        width: 85%;
+        height: 100%;
+        float: right;
+
+    }
+    .com_name{
+        color: #1cda9f;
+        font-size: .28rem;
+        font-family: "PingFang SC";
+    }
+    .jubao{
+        color: #626262;
+        font-size: .28rem;
+        font-family: "PingFang SC";
+    }
+    .commit_top{
+        display: flex;
+        justify-content: space-between;
+    }
+    .commit_con{
+        width: 100%;
+        /*height: .6rem;*/
+        color: #bebebe;
+        font-family: "PingFang SC";
+        font-size: .24rem;
+        overflow : hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+    .Introduction{
+        width: 5.86rem;
+        height: 2.6rem;
+        border: .02rem solid #d8d6d6;
+        border-radius: .04rem;
+        box-sizing: border-box;
+        padding: .02rem;
+        margin: 0 auto;
+        margin-top: .4rem;
+    }
+    .Introduction textarea{
+        width: 100%;
+        height: 100%;
+        background: rgba(255,255,255,0);
+        font-size: .28rem;
+        color: #ccc;
+        font-family: "PingFang SC";
+        border: none;
+    }
+    input,button,select,textarea{
+        outline:none;
+    }
+    textarea{
+        resize:none;
+    }
+
+</style>
+<body>
+<!--top_bar-->
+<div class="top_bar">
+    <a class="logo" href="javascript:history.back(-1)">
+        <img src="image/mine/green-arrows.png" alt="">
+    </a>
+    <p class="top_title">我的消息</p>
+    <a class="share_it" style="opacity: 0">
+        <img src="image/fenxiang.png" alt="">
+    </a>
+</div>
+<div class="top_bar_box"></div>
+<!--btn-->
+<div class="choose_box">
+    <div class="choose_btn cur">
+        <div class="choose_con">
+            <span>赞 (2018)</span>
+        </div>
+    </div>
+    <div class="choose_btn">
+        <div class="choose_con">
+            <span>评论 (2018)</span>
+        </div>
+    </div>
+</div>
+<!--点赞-->
+<div class="con_item on">
+    <div class="msg_item">
+        <div class="msg_logo">
+            <img src="image/msg/Avatar%20sample%20131.png" alt="">
+        </div>
+        <div class="msg_title">
+            <p>王校长赞了你</p>
+            <span>2018-11-28  17:32:23</span>
+        </div>
+    </div>
+</div>
+<!--评论-->
+<div class="con_item">
+    <div class="comment">
+        <div class="msg_logo">
+            <img src="image/msg/Avatar%20sample%20131.png" alt="">
+        </div>
+        <div class="commit_text">
+            <div class="commit_top">
+                <span class="com_name">王老板</span>
+                <span class="jubao">举报</span>
+            </div>
+            <div class="commit_con">你好，看你拍的视频叫得到很多很多很多很多和，你好，看你拍的视频叫得到很多很多很多很频叫得到很多很多很多很多和</div>
+            <div class="commit_top" style="margin-top: .2rem">
+                <span class="jubao">2018-11-28  17:32:23</span>
+                <span class="com_name">回复</span>
+            </div>
+        </div>
+    </div>
+</div>
+<a href="" class="index_back">
+    <img src="image/msg/index.png" alt="">
+</a>
+</body>
+<script src="js/rem.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="js/success.js"></script>
+<script src="layer_mobile/layer.js"></script>
+<script>
+    //选项卡
+    $(".choose_btn").click(function() {
+        $(".choose_btn").eq($(this).index()).addClass("cur").siblings().removeClass('cur');
+        $(".con_item").eq($(this).index()).addClass("on").siblings().removeClass('on');
+    });
+
+
+    //回复
+    $(".com_name").click(function () {
+        var hf_id=$(this).attr("hf");
+        let layerMsg = layer.open({
+            type: 1
+            ,content:`
+              <div class="Introduction">
+    <textarea name="" id="huifu_val" cols="30" rows="10" placeholder="请输入回复内容"></textarea>
+</div>
+<div class="huifu">提交</div>
+            `
+            ,style: 'position:fixed; left:0; top:0;right:0;bottom:0;margin:auto; width:6.5rem; border-radius:.1rem;height:4.6rem; border: none;border-red -webkit-animation-duration: .5s; animation-duration: .5s;'
+            ,yes:function () {
+                layer.closeAll();
+
+            }
+
+        });
+        //点击回复，提交回复内容
+        $(".huifu").click(function () {
+            var val=$("#huifu_val").val();
+            var id=GetURL("user_id");
+            var obj=getsign();
+            obj.user_id=id;
+            obj.type=2;
+            obj.object_id=hf_id;
+            obj.content=val;
+            console.log(obj);
+            $.ajax({
+                url:"/api/orator/comment",
+                async:false,
+                type: "post",
+                dataType: "json",
+                data:obj,
+                beforeSend:function(){
+                    layer.open({
+                        type:2,
+                    });
+                },
+                success:function (res) {
+                    layer.closeAll();
+                    if(res.code=="1"){
+                        layer.open({
+                            content: '回复成功！'
+                            ,btn: '确定'
+                        });
+                    }else {
+                        layer.open({
+                            content:res.message
+                            ,btn: '确定'
+                        });
+                    }
+                },
+                error: function() {
+                    layer.closeAll();
+                    layer.open({
+                        content: '前方拥堵，请稍后再试！'
+                        ,btn: '确定'
+                    });
+                }
+            })
+        })
+    });
+
+</script>
+</html>

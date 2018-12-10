@@ -64,7 +64,6 @@ button, input, select, textarea {
 }
 
 input[type=button]{
- 
     border: none;
     outline: none;
     -webkit-appearance: none;

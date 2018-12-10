@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+    <!-- 是否启动webapp功能，会删除默认的苹果工具栏和菜单栏。 -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- 这个主要是根据实际的页面设计的主体色为搭配来进行设置。 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!-- 忽略页面中的数字识别为电话号码,email识别 -->
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="layer_mobile/need/layer.css">
+    <title>超级演说家</title>
+</head>
+<style>
+    /* top_bar*/
+    .top_bar{
+        width: 100%;
+        height: .88rem;
+        background:#141615;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 .24rem;
+        position: fixed;
+        top:0;
+    }
+    .top_bar_box{
+        width: 100%;
+        height:.88rem;
+        border-bottom:0.02rem solid #6e6e6e;
+    }
+    .logo{
+        width:.6rem;
+        height: .57rem;
+    }
+    .share_it{
+        width:.33rem;
+        height: .36rem;
+    }
+    div img{
+        width: 100%;
+        height: 100%;
+    }
+    .top_title{
+        font-size: .32rem;
+        color:#fff;
+        font-family: "PingFang SC";
+    }
+    body,html{
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+    }
+    body{
+        background: url('image/background.png');
+        -webkit-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -o-background-size: 100% 100%;
+        background-size: 100% 100%;
+        width: 100%;
+    }
+    /* top_bar end*/
+    .area_top{
+        display: block;
+        width: 6.88rem;
+        height: .66rem;
+        margin: 0 auto;
+        margin-top: .3rem;
+        background: #434544;
+        opacity: 0.8;
+        border-radius: .3rem;
+    }
+    .area_top_center{
+        width: 1.35rem;
+        height: 100%;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content:space-around;
+    }
+    .area_top_img{
+        width: .26rem;
+        height: .32rem;
+    }
+    .area_top_center span{
+        font-family: "PingFang SC";
+        font-size: .24rem;
+        color:#fff;
+    }
+    .area_top_right{
+        width: .16rem;
+        height: .16rem;
+    }
+
+
+    .player_box{
+        width: 100%;
+        height: auto;
+        box-sizing: border-box;
+        margin-top: .38rem;
+        padding:0 .3rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+    .player_item{
+        display:block;
+        float: left;
+        width: 3.28rem;
+        height: 3.8rem;
+        margin-bottom:.23rem;
+        position: relative;
+        zoom: 1;
+    }
+    .player_item img{
+        display: block;
+        width:3.3rem;
+        height: 3.3rem;
+        background:#e5e5e5;
+        border-radius: .06rem;
+
+    }
+    .player_text{
+        width: 100%;
+        height: .26rem;
+        display: flex;
+        justify-content: space-between;
+        margin-top: .2rem;
+
+    }
+    .img_mask{
+        width:3.3rem;
+        height: 3.3rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background:#000;
+        opacity: 0.1;
+        z-index: 2;
+    }
+    .player_text_lf,.player_text_rt{
+        width: 50%;
+        line-height: .26rem;
+        font-size: .24rem;
+        color: #fff;
+        font-family: "PingFang SC";
+
+    }
+    .player_text_rt img{
+        display: block;
+        width: .21rem;
+        height: .23rem;
+        background: none;
+        float:right;
+    }
+    .player_text_rt p{
+        text-align: right;
+        font-size: .2rem;
+        display: block;
+        float: right;
+        background-image: -webkit-gradient(linear, 0 0, 0 bottom,from(#e34f4f), to(#f32020));
+        -webkit-background-clip: text;
+        font-family: "PingFang SC";
+        font-weight: bold;
+        -webkit-text-fill-color: transparent;
+    }
+    a:after{ clear:both;content:'';display:block;width:0;height:0;visibility:hidden;}
+
+    .area{
+        position: absolute;
+        top: .2rem;
+        left: .2rem;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+    }
+    .area img{
+        display: block;
+        float: left;
+        width:.18rem;
+        height: .22rem;
+    }
+    .area span{
+        display: block;
+        font-size:.2rem;
+        color: #fff;
+        font-family: "PingFang SC";
+
+    }
+    .city_box{
+        width:100%;
+        height:auto;
+        box-sizing: border-box;
+        padding:0 .27rem;
+        position: relative;
+
+    }
+    .city_current_text{
+        display: block;
+        font-size: .32rem;
+        color: #000;
+        font-family: "PingFang SC";
+        font-weight: bold;
+        margin-top: .5rem;
+    }
+    .city{
+        width: 2.1rem;
+        height: .66rem;
+        box-sizing: border-box;
+        border: .02rem solid #dedede;
+        border-radius: .26rem;
+        text-align: center;
+        line-height: .66rem;
+        font-size: .28rem;
+    }
+    .city_active{
+        margin-top: .42rem;
+        margin-bottom: .5rem;
+    }
+    .city_other{
+        width: 100%;
+        height:6.13rem;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        margin-top: .5rem;
+        overflow: scroll;
+    }
+    .city_item{
+        width: 2.1rem;
+        height: .66rem;
+        box-sizing: border-box;
+        border: .02rem solid #dedede;
+        border-radius: .26rem;
+        text-align: center;
+        line-height: .66rem;
+        font-size: .28rem;
+        margin-bottom: .4rem;
+    }
+    .clone_btn{
+        width: .88rem;
+        height: .88rem;
+        position: fixed;
+        left:0;
+        right: 0 ;
+        margin: 0 auto;
+        bottom:2rem;
+    }
+    .clone_btn img{
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<body>
+<!--top_bar-->
+<div class="top_bar" >
+    <div class="logo">
+        <img src="image/logo+.png" alt="">
+    </div>
+    <p class="top_title">地区排行</p>
+    <a class="share_it">
+        <img src="image/fenxiang.png" alt="">
+    </a>
+</div>
+<div class="top_bar_box"></div>
+<!--popular-->
+<div  class="area_top" id="choose_area">
+    <div class="area_top_center">
+        <img src="image/popular/weizhi.png" alt="" class="area_top_img">
+        <span id="city_index">北京</span>
+        <img src="image/popular/weizhi_right.png" alt="" class="area_top_right">
+    </div>
+</div>
+<!--content-->
+<div class="player_box">
+
+    <a href="" class="player_item">
+        <div class="img_mask">
+
+        </div>
+        <div class="area">
+            <img src="image/index/weizhi.png" alt=""> &nbsp;
+            <span>河北省</span>
+        </div>
+        <img src="image/index/cs.png" alt="">
+        <div class="player_text">
+            <div class="player_text_lf">
+                <span>084</span> <span>小王</span>
+            </div>
+            <div class="player_text_rt">
+                <p>205.34w</p>
+                <img src="image/index/hot.png" alt="">
+            </div>
+        </div>
+    </a>
+
+    <a href="" class="player_item">
+        <div class="img_mask">
+
+        </div>
+        <div class="area">
+            <img src="image/index/weizhi.png" alt=""> &nbsp;
+            <span>河北省</span>
+        </div>
+        <img src="image/index/cs.png" alt="">
+        <div class="player_text">
+            <div class="player_text_lf">
+                <span>084</span> <span>小王</span>
+            </div>
+            <div class="player_text_rt">
+                <p>205.34w</p>
+                <img src="image/index/hot.png" alt="">
+            </div>
+        </div>
+    </a>
+
+</div>
+
+
+</body>
+<script src="js/rem.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="layer_mobile/layer.js"></script>
+<script>
+
+   $("#choose_area").click(function () {
+
+
+       var pageii = layer.open({
+           type: 1
+           ,content:`<div class="city_box">
+    <p class="city_current_text">当前城市</p>
+    <div class="city city_active" id="city_this">北京市</div>
+    <p class="city_current_text">其他热门城市</p>
+    <div class="city_other">
+        <div class="city_item" onclick="city_choose()">河北省</div>
+        <div class="city_item">河北省</div>
+        <div class="city_item">山西省</div>
+        <div class="city_item">湖南省</div>
+        <div class="city_item">湖北省</div>
+        <div class="city_item">湖北省</div>
+        <div class="city_item">河北省</div>
+        <div class="city_item">山西省</div>
+        <div class="city_item">湖南省</div>
+        <div class="city_item">湖北省</div>
+        <div class="city_item">湖北省</div>
+        <div class="city_item">河北省</div>
+        <div class="city_item">山西省</div>
+        <div class="city_item">湖南省</div>
+        <div class="city_item">湖北省</div>
+        <div class="city_item">湖北省</div>
+        <div class="city_item">河北省</div>
+         <div class="city_item">湖北省</div>
+        <div class="city_item">河北省</div>
+        <div class="city_item">山西省</div>
+        <div class="city_item">湖南省</div>
+        <div class="city_item">湖北省</div>
+        <div class="city_item">湖北省</div>
+        <div class="city_item">河北省</div>
+        <div class="city_item">山西省</div>
+        <div class="city_item">湖南省</div>
+        <div class="city_item">湖北省</div>
+        <div class="city_item">湖北省</div>
+        <div class="city_item">河北省</div>
+
+    </div>
+    <div class="clone_btn" onclick="clone()">
+        <img src="image/popular/clone.png" alt="">
+    </div>
+</div>`
+           ,anim: 'scale'
+           ,style: 'position:fixed; left:0; top:.88rem; width:100%; height:100%; border: none; -webkit-animation-duration: .5s; animation-duration: .5s;background:rgba(255,255,255,0.9)'
+       });
+       var aaa=$("#city_index").html();
+       $("#city_this").html(aaa);
+       var city_this=document.getElementsByClassName("city_item");
+       for (i=0;i<city_this.length;i++){
+           city_this[i].onclick=function () {
+               document.getElementById("city_this").innerHTML=this.innerHTML;
+               document.getElementById("city_index").innerHTML=this.innerHTML;
+               layer.closeAll();
+           }
+       }
+   });
+    function clone() {
+        layer.closeAll();
+    }
+
+
+
+
+    //城市选择
+   function city_choose() {
+       var city_this=document.getElementsByClassName("city_item");
+       for (i=0;i<city_this.length;i++){
+           var city1=document.getElementById("city_this");
+           console.log(city1);
+           city1.innerHTML=this.innerHTML;
+           document.getElementById("city_index").innerHTML=this.innerHTML;
+
+       }
+   }
+
+
+
+
+</script>
+</html>

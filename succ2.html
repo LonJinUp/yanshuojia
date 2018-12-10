@@ -33,7 +33,6 @@
     <!-- windows phone 点击无高光 -->
     <meta name="msapplication-tap-highlight" content="no">
     <link rel="stylesheet" href="css/base.css">
-    <link rel="stylesheet" href="layer_mobile/need/layer.css">
     <title>超级演说家</title>
 </head>
 <style>
@@ -56,8 +55,9 @@
         border-bottom:0.02rem solid #6e6e6e;
     }
     .logo{
-        width:.6rem;
-        height: .57rem;
+        display: block;
+        width:.22rem;
+        height: .38rem;
     }
     .share_it{
         width:.33rem;
@@ -87,125 +87,66 @@
         width: 100%;
     }
     /* top_bar end*/
-    .tel_box{
-        width: 6.5rem;
-        height: .88rem;
+    .success_top{
+        width: 5rem;
+        height: 2.45rem;
         margin: 0 auto;
-        box-sizing: border-box;
-        border:.02rem solid #f9b32b;
-        border-radius:26rem;
-        display: flex;
-        align-items: center;
-        padding:0 .29rem;
+        background: url('image/success/success.png')no-repeat center center/100% 100%;
+        margin-top: .79rem;
     }
-    .top_margin{
-        margin-top: .6rem;
-    }
-    .top_margin2{
-        margin-top: .29rem;
-        position: relative;
-    }
-    .next{
+
+    .ok_btn{
         display: block;
-        width: 7.50rem;
-        height: 2.36rem;
+        width:7.5rem;
+        height:2.36rem;
         margin: 0 auto;
-        background: url('image/Sign_up/next.png')no-repeat center center/100% 100%;
-        margin-top: .3rem;
     }
-    .phone{
-        width: .22rem;
-        height: .32rem;
-        margin-right: .2rem;
+    .ok_btn img{
+        width: 100%;
+        height: 100%;
     }
-    .tel{
-        border: none;
-        background: none;
-        outline:none;
-        color: #fff;
-        font-size: .28rem;
-
+    .success_title{
+        width: 3.9rem;
+        height: .75rem;
+        margin: 0 auto;
+        background: url('image/success/succ2_title.png')no-repeat center center/100% 100%;
+        margin-top: .58rem;
     }
-    .tel:focus{
-          outline:none
-      }
-    .code{
-        background-color: #c9982a;
-        width: 1.7rem;
-        height: .52rem;
-        position: absolute;
-        top: 0;
-        bottom: 0;
-        margin: auto 0;
-        right: .2rem;
-        border: none;
-        border-radius: .2rem;
-        color: #fff;
-        font-family: "PingFang SC";
-        font-size:.24rem;
-        text-align: center;
-        line-height: .52rem;
-        outline: none;
-
+    a{ -webkit-tap-highlight-color:rgba(255,255,255,0)}
+    a:hover{
+        -webkit-tap-highlight-color:rgba(255,255,255,0)
     }
 
-    input:focus {
-        border: none;
-        outline: none;
-    }
 
-    input:focus {
-        outline: none;
-    }
-    a{
-        -webkit-tap-highlight-color:rgba(0,0,0,0);
-    }
+
 
 </style>
 <body>
 <!--top_bar-->
 <div class="top_bar">
-    <div class="logo">
-        <img src="image/logo+.png" alt="">
-    </div>
-    <p class="top_title">超级演说家</p>
-    <a class="share_it">
+    <a class="logo" href="javascript:history.back(-1)">
+        <img src="image/mine/green-arrows.png" alt="">
+    </a>
+    <p class="top_title">提交成功</p>
+    <a class="share_it" style="opacity: 0">
         <img src="image/fenxiang.png" alt="">
     </a>
 </div>
 <div class="top_bar_box"></div>
 <!--Sign_up-->
-<div class="tel_box top_margin">
-    <div class="phone">
-        <img src="image/Sign_up/phone.png" alt="">
-    </div>
-    <input type="number" class="tel" placeholder="请输入手机号" id="tel">
-</div>
-<div class="tel_box top_margin2">
-    <div class="phone">
-        <img src="image/Sign_up/yanzhengma.png" alt="">
-    </div>
-    <input type="number" pattern="\d*" class="tel" placeholder="请输入验证码" id="code">
-    <input type="button" class="code" value="发送验证码" id="yanzheng_btn">
-</div>
-<div class="tel_box top_margin2">
-    <div class="phone">
-        <img src="image/Sign_up/yanzhengma.png" alt="">
-    </div>
-    <input type="password" class="tel" placeholder="请输入密码" id="pasd">
-</div>
-<!--next-->
-<a  class="next" id="next_up" href="perfect.html"></a>
+<div class="success_top"></div>
+<!--title-->
+<div class="success_title"></div>
 
+<!--ok-->
+<a href="mine.html" class="ok_btn">
+    <img src="image/success/ok.png" alt="">
+</a>
 </body>
 <script src="js/rem.js"></script>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-<script src="js/md5.js"></script>
-<script src="layer_mobile/layer.js"></script>
+<script src="js/success.js"></script>
 <script>
-
-
-   
 
 </script>
 </html>

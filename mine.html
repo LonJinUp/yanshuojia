@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no"/>
+    <!-- 是否启动webapp功能，会删除默认的苹果工具栏和菜单栏。 -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <!-- 这个主要是根据实际的页面设计的主体色为搭配来进行设置。 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <!-- 忽略页面中的数字识别为电话号码,email识别 -->
+    <meta name="format-detection" content="telephone=no, email=no"/>
+    <!-- 启用360浏览器的极速模式(webkit) -->
+    <meta name="renderer" content="webkit">
+    <!-- 避免IE使用兼容模式 -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+    <meta name="HandheldFriendly" content="true">
+    <!-- 微软的老式浏览器 -->
+    <meta name="MobileOptimized" content="320">
+    <!-- uc强制竖屏 -->
+    <meta name="screen-orientation" content="portrait">
+    <!-- QQ强制竖屏 -->
+    <meta name="x5-orientation" content="portrait">
+    <!-- UC强制全屏 -->
+    <meta name="full-screen" content="yes">
+    <!-- QQ强制全屏 -->
+    <meta name="x5-fullscreen" content="true">
+    <!-- UC应用模式 -->
+    <meta name="browsermode" content="application">
+    <!-- QQ应用模式 -->
+    <meta name="x5-page-mode" content="app">
+    <!-- windows phone 点击无高光 -->
+    <meta name="msapplication-tap-highlight" content="no">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="layer_mobile/need/layer.css">
+    <title>超级演说家</title>
+</head>
+<style>
+    /* top_bar*/
+    .top_bar{
+        width: 100%;
+        height: .88rem;
+        background:#141615;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-sizing: border-box;
+        padding: 0 .24rem;
+        position: fixed;
+        top:0;
+    }
+    .top_bar_box{
+        width: 100%;
+        height:.88rem;
+        border-bottom:0.02rem solid #6e6e6e;
+    }
+    .logo{
+        display: block;
+        width:.22rem;
+        height: .38rem;
+    }
+    .share_it{
+        width:.33rem;
+        height: .36rem;
+    }
+    div img{
+        width: 100%;
+        height: 100%;
+    }
+    .top_title{
+        font-size: .32rem;
+        color:#fff;
+        font-family: "PingFang SC";
+    }
+    body,html{
+        width: 100%;
+        height: 100%;
+        position: relative;
+
+    }
+    body{
+        background: url('image/background.png');
+        -webkit-background-size: 100% 100%;
+        -moz-background-size: 100% 100%;
+        -o-background-size: 100% 100%;
+        background-size: 100% 100%;
+        width: 100%;
+    }
+    /* top_bar end*/
+    .user_logo{
+        margin: 0 auto;
+        margin-top:.8rem;
+        width: 1.4rem;
+        height: 1.4rem;
+        border-radius: 50%;
+        background: #000;
+    }
+    .user_logo img{
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+    .user_name{
+        width: auto;
+        height: .34rem;
+        margin: 0 auto;
+        margin-top: .18rem;
+        color: #fff;
+        font-family: "PingFang SC";
+    }
+    .user_name p{
+        text-align: center;
+        font-size: .32rem;
+    }
+    .user_panking{
+       width: 5rem;
+        height:.3rem;
+        margin: 0 auto;
+        margin-top:.35rem;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        font-size: .26rem;
+        color: #fff;
+        font-family: "PingFang SC";
+    }
+    .module{
+        display: block;
+        width: 100%;
+        height: .98rem;
+        border-bottom: .01rem solid #6e6e6e;
+        box-sizing: border-box;
+        padding:0 .3rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    .module_first{
+        margin-top: .77rem;
+    }
+    .module_left{
+        font-size: .28rem;
+        font-family: "PingFang SC";
+        color: #fff;
+    }
+    .module_right{
+        display: flex;
+        align-items: center;
+    }
+    .arrow_right{
+        width: .17rem;
+        height: .29rem;
+
+    }
+    .module_right span{
+        margin-right: .2rem;
+        font-size: .24rem;
+        font-family: "PingFang SC";
+
+    }
+    .msg_color2{
+        color:#626262;
+    }
+    .msg_color{
+        color: #c6302f;
+    }
+    .module_bottom{
+
+        border-top:.01rem solid #6e6e6e;
+    }
+    .border_box{
+        width: 100%;
+        height: .14rem;
+        background: #2f3130;
+    }
+    .sign_out{
+        width: 6.5rem;
+        height: .88rem;
+        margin: 0 auto;
+        margin-top:1.54rem;
+        border: .01rem solid #6e6e6e;
+        border-radius: .36rem;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: .86rem;
+        font-family: "PingFang SC";
+        font-size: .32rem;
+        color: #565756;
+    }
+</style>
+<body>
+<!--top_bar-->
+    <div class="top_bar">
+        <a class="logo" href="javascript:history.back(-1)">
+            <img src="image/mine/green-arrows.png" alt="">
+        </a>
+        <p class="top_title">个人中心</p>
+        <a class="share_it" style="opacity: 0">
+            <img src="image/fenxiang.png" alt="">
+        </a>
+    </div>
+    <div class="top_bar_box"></div>
+<!--user_logo-->
+    <div class="user_logo">
+        <img src="image/mine/john-t-451474.png" alt="">
+    </div>
+<!--user name-->
+    <div class="user_name">
+        <p>我是高手</p>
+    </div>
+<!--user_Ranking-->
+    <div class="user_panking">
+        <span>即将开启</span>
+        <span>敬请期待</span>
+    </div>
+<!--Module-->
+    <a  class="module module_first kf_btn">
+        <div class="module_left">我的参赛信息</div>
+        <div class="module_right">
+            <!--<span>立刻领取奖励</span>-->
+            <img src="image/mine/right.png" alt="" class="arrow_right">
+        </div>
+    </a>
+    <a  class="module kf_btn">
+        <div class="module_left">我的消息</div>
+        <div class="module_right">
+            <span class="msg_color"></span>
+            <img src="image/mine/right.png" alt="" class="arrow_right">
+        </div>
+    </a>
+    <a class="module kf_btn">
+        <div class="module_left">我的奖品</div>
+        <div class="module_right">
+            <span class="msg_color2"></span>
+            <img src="image/mine/right.png" alt="" class="arrow_right">
+        </div>
+    </a>
+    <div class="border_box"></div>
+    <a  class="module module_bottom  kf_btn">
+        <div class="module_left">我赞过的</div>
+        <div class="module_right">
+            <span class="msg_color2"></span>
+            <img src="image/mine/right.png" alt="" class="arrow_right">
+        </div>
+    </a>
+<!--sing_up-->
+    <div class="sign_out">退出账号</div>
+</body>
+<script src="js/rem.js"></script>
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script src="layer_mobile/layer.js"></script>
+<script>
+    $(".kf_btn").click(function () {
+        layer.open({
+            content: '暂未开放，敬请期待！'
+            ,btn: '确定'
+        });
+    })
+</script>
+</html>
