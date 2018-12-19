@@ -184,7 +184,7 @@
 <div class="video_title"></div>
 <!--video jt-->
 <div class="arrow"></div>
-<a href="success.html" class="participate">
+<a class="participate">
 </a>
 <div class="fengxiang_img">
     <img src="image/fengxiang.png" alt="">
@@ -200,5 +200,17 @@
    $(".fengxiang_img").click(function () {
        $(this).hide()
    })
+    
+    $(".participate")click(function(){
+         var u = navigator.userAgent, app = navigator.appVersion;
+            var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+            var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+            if (isAndroid) {
+                alert("androd")
+            }
+            if (isIOS) {
+                 alert("ios")
+            }
+    })
 </script>
 </html>
