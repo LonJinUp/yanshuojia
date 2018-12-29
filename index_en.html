@@ -285,10 +285,16 @@
 <script src="layer_mobile/layer.js"></script>
 <script>
     $(".kf_btn").click(function () {
-        layer.open({
-            content: '暂未开放，敬请期待！'
-            ,btn: '确定'
-        });
+       var yanshuojia=JSON.parse(e);
+                    var u = navigator.userAgent, app = navigator.appVersion;
+                    var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
+                    var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
+                    if (isAndroid) {
+                        alert(1);
+                        window.and.ceshi("hellow");
+                    }if (isIOS) {
+                        window.webkit.messageHandlers.wxpay.postMessage({order_code:yanshuojia.data.order_code,money:'0.01'});
+                    }
     })
 </script>
 </html>
