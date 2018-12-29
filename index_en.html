@@ -289,9 +289,10 @@
                     var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
                     var isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); //ios终端
                     if (isAndroid) {
-                        alert(1);
+                        alert("and");
                         window.and.ceshi("hellow");
                     }if (isIOS) {
+                        alert("ios");
                         window.webkit.messageHandlers.wxpay.postMessage({order_code:yanshuojia.data.order_code,money:'0.01'});
                     }
     })
