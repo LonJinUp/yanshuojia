@@ -34,6 +34,8 @@
     <meta name="msapplication-tap-highlight" content="no">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="layer_mobile/need/layer.css">
+    <link href="https://vjs.zencdn.net/7.4.1/video-js.css" rel="stylesheet">
+    <script src="https://vjs.zencdn.net/ie8/ie8-version/videojs-ie8.min.js"></script>
     <title>超级演说家</title>
 </head>
 <style>
@@ -119,7 +121,7 @@
         background: url('image/jiantou.png')no-repeat center center /100% 100%;
         margin: 0 auto;
         margin-top: .3rem;
-       /*position:absolute;*/
+        /*position:absolute;*/
         /*left: 0;*/
         /*right: 0;*/
         /*margin-top: .3rem;*/
@@ -162,23 +164,26 @@
 </style>
 <body>
 <!--top_bar-->
-    <div class="top_bar">
-        <div class="logo">
-            <img src="image/logo+.png" alt="">
-        </div>
-        <p class="top_title">超级演说家</p>
-        <a class="share_it" id="fengxiang">
-            <img src="image/fenxiang.png" alt="">
-        </a>
+<div class="top_bar">
+    <div class="logo">
+        <img src="image/logo+.png" alt="">
     </div>
-    <div class="top_bar_box"></div>
+    <p class="top_title">超级演说家</p>
+    <a class="share_it" id="fengxiang">
+        <img src="image/fenxiang.png" alt="">
+    </a>
+</div>
+<div class="top_bar_box"></div>
 <!--banner-->
 <div class="banner"></div>
 <!--title-->
 <div class="center_title"></div>
 <!--video-->
 <div class="video_box">
-        <video src="http://vods1fsjbl0.vod.126.net/vods1fsjbl0/b0b29766-53b1-45c2-82dd-26734b388d50.mp4"    autoplay="autoplay" controls="controls" style="width:100%; height:100%;object-fit:fill;border-radius:.09rem" ></video>
+    <video id="my-video" class="video-js"      autoplay="autoplay" controls="controls" style="width:100%; height:100%;object-fit:fill;border-radius:.09rem" >
+        <source src="http://vods1fsjbl0.vod.126.net/vods1fsjbl0/b0b29766-53b1-45c2-82dd-26734b388d50.mp4" type='video/mp4'>
+    </video>
+    
 </div>
 <!--video title-->
 <div class="video_title"></div>
@@ -194,13 +199,13 @@
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="layer_mobile/layer.js"></script>
 <script>
-   $("#fengxiang").click(function () {
+    $("#fengxiang").click(function () {
         $(".fengxiang_img").show();
-   })
-   $(".fengxiang_img").click(function () {
-       $(this).hide()
-   })
-    
+    })
+    $(".fengxiang_img").click(function () {
+        $(this).hide()
+    })
+
     $(".participate").click(function(){
         var u = navigator.userAgent, app = navigator.appVersion;
         var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; //g
