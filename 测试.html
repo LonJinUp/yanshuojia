@@ -172,6 +172,7 @@
 <script src="js/rem.js"></script>
 <script src="layer/layer.js"></script>
 <script>
+    $('body').css({'height':$(window).height()})
     var UserId=GetURL("user_id");
     if(UserId==null){
         layer.open({
